@@ -1,4 +1,4 @@
-name: CI Build Android APK
+name: Build Android APK
 
 on:
   push:
@@ -25,6 +25,8 @@ jobs:
 
     - name: Build with Buildozer
       run: |
+        mkdir -p /home/runner/.android
+        echo "2433038555c165f047bab166babf45d58723fde1" > /home/runner/.android/repositories.cfg
         yes | buildozer -v android debug
 
     - name: Upload APK Artifact
