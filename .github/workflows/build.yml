@@ -31,6 +31,8 @@ jobs:
 
     - name: Build with Buildozer
       run: |
+        export JAVA_HOME=$JAVA_HOME_11_X64
+        export PATH=$JAVA_HOME/bin:$PATH 
         mkdir -p /home/runner/.android
         echo "2433038555c165f047bab166babf45d58723fde1" > /home/runner/.android/repositories.cfg
         yes | buildozer -v android debug
